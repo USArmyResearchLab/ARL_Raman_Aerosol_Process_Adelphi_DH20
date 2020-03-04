@@ -1,0 +1,21 @@
+#
+#    This is calibration data for the aerosol Raman spectrometer
+#    Used in the Doughty and Hill JQSRT papers (2019)
+#    The calibration is for 8/25/2016
+#    Calibration values are a combination of the two full
+#        calibrations measured before and after this day.
+#        full calibrations done using the lines from a neon lamp.
+#    The determined laser wavelengths measured using 
+#        the 520.7 cm-1 peak on a silicon slab are an average
+#        of eight silicon measurements made during the full 
+#        calibrations and during field calibrations with only
+#        the silicon slab used.
+#    Uncertainty notes: Between 400 and 1800 cm-1, its +0.56/-0.86,
+#        above 2700, its +3.29/-3.58. These are the worst case errors.        real error is likely to be less. Errors change with 
+#        wavelength, with the lowest magnitudes between 500-1500 cm-1
+#        but some cross zero at two places in this range.
+#    Please see doughty and hill (2019) in the supplement for a
+#        comparison of different calibrations
+#
+Spectrometer Coefficients (ax^3 + bx^2 + cx + d):-1.2483276e-09,-6.87657289e-06,0.171035657,641.717874
+Y intercept:642.986773071
