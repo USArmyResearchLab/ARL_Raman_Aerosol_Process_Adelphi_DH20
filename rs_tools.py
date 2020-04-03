@@ -298,7 +298,7 @@ def load_summary(directory_load,QC=False,QC_Dir = '',QC_Name='colldata.txt'):
         #'File not Found','noFile',os.path.join(directory_load,'*SpotInfo.txt'))         
                 
 def load_spotinfo(directory_load,QC=False,QC_Dir = '',QC_Name='colldata.txt'):         
-    #Check for spotinfo
+
     import glob
     import os
     import numpy as np
@@ -306,7 +306,7 @@ def load_spotinfo(directory_load,QC=False,QC_Dir = '',QC_Name='colldata.txt'):
     from re import sub
     import ntpath
     
-    #pdb.set_trace()    
+   
     allfile2load = glob.glob(os.path.join(directory_load,'*SpotInfo.txt'))
 
     if len(allfile2load) == 1:
@@ -318,8 +318,7 @@ def load_spotinfo(directory_load,QC=False,QC_Dir = '',QC_Name='colldata.txt'):
         myRebs.Summary.Imaging_Start=convert_rebspath_to_datetime(directory_load)
         
         myRebs.Summary.Save_Name = myRebs.Summary.Imaging_Start.strftime('%Y%m%d_%H%M%S')
-        #Loop through the 'info' categories, fill xml data as required
-        #myRebs[i].Summary.load_Summary(root.iter('Summary'))
+
             
         with open(file2load,'r') as f:
             
@@ -405,22 +404,21 @@ def load_spotinfo(directory_load,QC=False,QC_Dir = '',QC_Name='colldata.txt'):
             #Someday we may change this to a 'warning'
             raise IOError(11,'NoImagesFound') 
             
-        #import pdb
-        #pdb.set_trace()
+
         myimsize = myRebs.Image[0].Replicate_Data.shape   
         myRebs.Summary.Spectra_Quality=np.zeros([myimsize[0],my_img_num+1])            
         return myRebs
                 
     else:
         raise IOError(12,'NoFileFound')
-        #'File not Found','noFile',os.path.join(directory_load,'*SpotInfo.txt')) 
+ 
            
 def load_rebsdirectory(input_directory):
     import glob
     import os
     import ntpath
     import numpy as np
-    #input_directory = 'L:\\Aerosols\\Raman-REBS\\raw13\\20150502r13\\REBS RN 13_20150502_185034'
+
     
     myRebs = Collection()
     myRebs.Image = []    
@@ -1057,9 +1055,9 @@ def compute_bkr_collection(myCollection,percentile=10,make_images=False,image_na
     from copy import deepcopy
     #GEt a dircube. Currently only use the 'replicates'
     #
-    #   BIg problem here currently - collection process takes the sum, we really want it to take the 'mean' in this case
-    #
-    #
+	#	There was an issue here but it is fixed now.
+	#
+
     dc00,dx,dz,t,fl,ft,fm = collection_process(myCollection,method='avg')
     num_rows,num_wns,num_images = dc00.shape
     pctl = np.nanpercentile(dc00,percentile,axis=2)   
